@@ -1,4 +1,4 @@
-package com.neoflex.payments.domain.dto;
+package com.neoflex.payments.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
