@@ -71,7 +71,6 @@ public class PaymentRouter {
                                 .and(RequestPredicates.accept(MediaType.APPLICATION_JSON)),
                         serverRequest -> serverRequest
                                 .bodyToMono(PaymentRequestDto.class)
-
                                 .flatMap(payment -> ServerResponse
                                         .status(HttpStatus.CREATED)
                                         .header("Correlation-Id", payment.getId().toString())

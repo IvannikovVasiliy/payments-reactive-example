@@ -78,6 +78,18 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
+    public Mono<Void> addPaymentsFlux(Flux<PaymentRequestDto> paymentRequestFlux) {
+        return paymentRequestFlux
+                .flatMap(paymentRequestDto -> databaseClient
+                        .sql("insert into payments(id, card_number, date) values(:id, :card_number, :date);")
+                        .bind("id", paymentRequestDto.getId())
+                        .bind("card_number", paymentRequestDto.getCardNumber())
+                        .bind("date", paymentRequestDto.getDate())
+                        .then())
+                .then();
+    }
+
+    @Override
     public Mono<Void> updatePayment(Long id, UpdatePaymentRequestDto paymentRequestDto) {
         return databaseClient
                 .sql("update payments set card_number=:card_number, date=:date where id=:id")

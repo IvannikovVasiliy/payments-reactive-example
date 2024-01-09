@@ -1,5 +1,9 @@
 package com.neoflex.payments.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.neoflex.payments.kafka.serdes.LocalDateTimeDeserializer;
+import com.neoflex.payments.kafka.serdes.LocalDateTimeSerializer;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -13,7 +17,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Setter
-@NotNull(message = "not null")
 public class PaymentRequestDto {
 
     private Long id;
@@ -21,5 +24,7 @@ public class PaymentRequestDto {
     @Size(min = 6)
     private String cardNumber;
 
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime date;
 }

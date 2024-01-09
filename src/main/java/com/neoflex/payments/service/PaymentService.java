@@ -15,6 +15,8 @@ public interface PaymentService {
 
     Mono<Void> addPayment(@Valid PaymentRequestDto paymentRequestDto);
 
+    Mono<Void> addPaymentsFlux(Flux<PaymentRequestDto> paymentRequestFlux);
+
     Mono<Void> updatePayment(Long id, @Valid UpdatePaymentRequestDto updatePaymentRequestDto);
 
     Mono<Void> deletePaymentById(Long id);

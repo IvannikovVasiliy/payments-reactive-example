@@ -3,3 +3,16 @@ spring:
     url: r2dbc:postgresql://localhost:5432/payments-reactive-example
     username: POSTGRES
     password: POSTGRES
+  kafka:
+    bootstrapServers: localhost:9092
+    topic: payments
+    consumer:
+      groupId: payments
+
+app:
+  hostPort: http://localhost:8080
+  kafka:
+
+logging:
+  level:
+    com.neoflex.payments.webclient: debug
