@@ -14,6 +14,7 @@ import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 @Service
@@ -85,7 +86,10 @@ public class PaymentServiceImpl implements PaymentService {
                         .bind("id", paymentRequestDto.getId())
                         .bind("card_number", paymentRequestDto.getCardNumber())
                         .bind("date", paymentRequestDto.getDate())
-                        .then())
+                        .then()
+                        /*.doOnError(err -> {
+                            System.out.println();
+                        })*/)
                 .then();
     }
 

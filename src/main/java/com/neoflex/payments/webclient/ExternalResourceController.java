@@ -43,13 +43,4 @@ public class ExternalResourceController {
                 });
 
     }
-
-//    return WebClient
-//            .create(HOST_PORT)
-//            .get()
-//                .uri("/v2/payments/" + id)
-//                .exchangeToMono(clientResponse -> {
-//        log.debug("The response with correlationId={}", clientResponse.headers().header("Correlation-Id"));
-//        return clientResponse.bodyToMono(PaymentResponseDto.class);
-//    });
 }

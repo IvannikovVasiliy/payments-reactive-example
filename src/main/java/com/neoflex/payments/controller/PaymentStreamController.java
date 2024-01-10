@@ -4,6 +4,7 @@ import com.neoflex.payments.dto.PaymentRequestDto;
 import com.neoflex.payments.dto.PaymentResponseDto;
 import com.neoflex.payments.service.PaymentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
